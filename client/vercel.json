@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ai-code-reviewer-uy32.onrender.com/api/:path*"
+    }
+  ]
+}
