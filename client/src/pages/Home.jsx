@@ -4,6 +4,7 @@ import ReviewResult from '../components/ReviewResult';
 import useEditorHook from '../hooks/useEditorHook'
 import ReviewPlaceholder from "../components/ReviewPlaceholder";
 import ReviewLoader from '../components/ReviewLoader';
+
 const Home = () => {
   const {
     editorContent,
@@ -12,14 +13,26 @@ const Home = () => {
     language,
     setLanguage,
     reviewResult,
-    loading,setLoading
+    loading,
+    setLoading
   } = useEditorHook();
+
   return (
-    <div className='w-full h-screen bg-black flex gap-2 px-5 py-5'>
-      <div className="left w-1/2 bg-black  h-full" >
-        <CodeEditor editorContent={editorContent} setEditorContent={setEditorContent} onSubmit={onSubmit} language={language} setLanguage={setLanguage} />
+    <div className="w-full min-h-screen bg-black flex flex-col lg:flex-row gap-3 px-3 sm:px-4 md:px-5 py-3 sm:py-4 md:py-5 overflow-hidden">
+
+      {/* Left - Code Editor */}
+      <div className="left w-full lg:w-1/2 bg-black h-[55vh] sm:h-[60vh] md:h-[65vh] lg:h-[calc(100vh-2.5rem)] min-h-0">
+        <CodeEditor
+          editorContent={editorContent}
+          setEditorContent={setEditorContent}
+          onSubmit={onSubmit}
+          language={language}
+          setLanguage={setLanguage}
+        />
       </div>
-<div className="right response-scrollbar w-1/2 h-full overflow-hidden">
+
+      {/* Right - Review Result */}
+      <div className="right response-scrollbar w-full lg:w-1/2 h-[45vh] sm:h-[40vh] md:h-[35vh] lg:h-[calc(100vh-2.5rem)] min-h-0 overflow-hidden">
         {loading ? (
           <ReviewLoader />
         ) : reviewResult ? (
@@ -27,8 +40,8 @@ const Home = () => {
         ) : (
           <ReviewPlaceholder />
         )}
-
       </div>
+
     </div>
   )
 }

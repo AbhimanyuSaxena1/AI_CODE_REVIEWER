@@ -110,9 +110,9 @@ const CodeEditor = ({
 
           padding: {
             top: 20,
-            bottom: 70,
-            left: 20,
-            right: 20,
+            bottom: 80,
+            left: 12,
+            right: 12,
           },
 
           scrollbar: {
@@ -131,13 +131,30 @@ const CodeEditor = ({
       />
 
       {/* Bottom Controls */}
-      <div className="absolute bottom-4 right-5 z-10 flex items-center gap-2">
+      <div className="
+        absolute
+        bottom-3
+        left-3
+        right-3
+        z-10
+        flex
+        flex-col
+        gap-2
+        sm:bottom-4
+        sm:left-auto
+        sm:right-4
+        sm:flex-row
+        sm:items-center
+        sm:justify-end
+        sm:gap-2
+      ">
 
         {/* Language Selector */}
         <select
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
           className="
+            w-full
             cursor-pointer
             rounded-md
             border
@@ -145,12 +162,15 @@ const CodeEditor = ({
             bg-black
             px-3
             py-2
-            text-sm
+            text-xs
             text-white
             outline-none
             transition
             hover:border-gray-500
             focus:border-gray-400
+
+            sm:w-auto
+            sm:text-sm
           "
         >
           <option value="javascript">
@@ -187,15 +207,19 @@ const CodeEditor = ({
           type="button"
           onClick={onSubmit}
           className="
+            w-full
             cursor-pointer
             rounded-md
+            bg-gray-200
             px-4
             py-2
-            text-sm
+            text-xs
             font-semibold
-            transition
-            bg-gray-200
             text-black
+            transition
+
+            sm:w-auto
+            sm:text-sm
           "
         >
           Review Code
