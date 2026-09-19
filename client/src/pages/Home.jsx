@@ -1,5 +1,5 @@
 import React from 'react'
-import CodeEditor from '../components/codeEditor'
+import CodeEditor from '../components/CodeEditor'
 import ReviewResult from '../components/reviewResult'
 import useEditorHook from '../hooks/useEditorHook'
 import ReviewPlaceholder from "../components/ReviewPlaceholder";
